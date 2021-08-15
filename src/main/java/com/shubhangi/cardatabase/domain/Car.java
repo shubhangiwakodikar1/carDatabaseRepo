@@ -1,8 +1,5 @@
 package com.shubhangi.cardatabase.domain;
 
-import com.shubhangi.cardatabase.repository.CarRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
