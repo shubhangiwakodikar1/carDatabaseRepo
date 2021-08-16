@@ -1,5 +1,7 @@
 package com.shubhangi.cardatabase.domain;
 
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,12 @@ public class Owner {
     private String name;
 
     public Owner(String name) {
+        super();
         this.name = name;
+    }
+
+    public Owner() {
+        super();
     }
 
     public String getName() {

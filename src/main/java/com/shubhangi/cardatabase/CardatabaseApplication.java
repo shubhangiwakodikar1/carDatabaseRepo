@@ -2,6 +2,8 @@ package com.shubhangi.cardatabase;
 
 import com.shubhangi.cardatabase.domain.Car;
 import com.shubhangi.cardatabase.domain.CarRepository;
+import com.shubhangi.cardatabase.domain.Owner;
+import com.shubhangi.cardatabase.domain.OwnerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import java.util.List;
 public class CardatabaseApplication {
 	@Autowired
 	CarRepository carRepository;
+	@Autowired
+	OwnerRepository ownerRepository;
 
 	private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
 	public static void main(String[] args) {
@@ -29,7 +33,7 @@ public class CardatabaseApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner() {
+	CommandLineRunner commandLineRunnerCar() {
 		return args -> {
 			//save demo data in the repository
 			carRepository.save(new Car("Toyota", "Prius", "blue", "DMD 123",
@@ -40,6 +44,16 @@ public class CardatabaseApplication {
 					2030, 30000, "another electric car"));
 			carRepository.save(new Car("Guddu", "fantasticCar", "white", "GUU 123",
 					2030, 30000, "another fantastic electric car"));
+		};
+	}
+
+	@Bean
+	CommandLineRunner commandLineRunnerOwner() {
+		return args -> {
+			//save demo data in the repository
+			ownerRepository.save(new Owner("Shubhangi"));
+			ownerRepository.save(new Owner("Shubh"));
+			ownerRepository.save(new Owner("Shu"));
 		};
 	}
 }

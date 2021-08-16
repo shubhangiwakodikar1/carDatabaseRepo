@@ -29,6 +29,10 @@ public class Car {
         this.description = description;
     }
 
+    public Car() {
+        super();
+    }
+
     public String getBrand() {
         return brand;
     }
