@@ -36,24 +36,25 @@ public class CardatabaseApplication {
 	CommandLineRunner commandLineRunnerCar() {
 		return args -> {
 			//save demo data in the repository
-			carRepository.save(new Car("Toyota", "Prius", "blue", "DMD 123",
-					2015, 12000, "hybrid car"));
-			carRepository.save(new Car("Tesla", "Model S", "white", "CAM 123",
-					2025, 52000, "electric car"));
-			carRepository.save(new Car("Smart", "fortwo", "white", "DCM 123",
-					2030, 30000, "another electric car"));
-			carRepository.save(new Car("Guddu", "fantasticCar", "white", "GUU 123",
-					2030, 30000, "another fantastic electric car"));
-		};
-	}
+			Owner owner1 = new Owner("Shubhangi", "Wakodikar");
+			Owner owner2 = new Owner("Shubh", "Wakod");
+			Owner owner3 = new Owner("Shu", "Wak");
+			ownerRepository.save(owner1);
+			ownerRepository.save(owner2);
+			ownerRepository.save(owner3);
 
-	@Bean
-	CommandLineRunner commandLineRunnerOwner() {
-		return args -> {
-			//save demo data in the repository
-			ownerRepository.save(new Owner("Shubhangi"));
-			ownerRepository.save(new Owner("Shubh"));
-			ownerRepository.save(new Owner("Shu"));
+			Car car1 = new Car("Toyota", "Prius", "blue", "DMD 123", 2015,
+					12000, "hybrid car", owner1);
+			Car car2 = new Car("Tesla", "Model S", "white", "CAM 123", 2025,
+					52000, "electric car", owner2);
+			Car car3 = new Car("Smart", "fortwo", "white", "DCM 123", 2030,
+					30000, "another electric car", owner3);
+			Car car4 = new Car("Guddu", "fantasticCar", "white", "GUU 123", 2030,
+					30000, "another fantastic electric car", owner1);
+			carRepository.save(car1);
+			carRepository.save(car2);
+			carRepository.save(car3);
+			carRepository.save(car4);
 		};
 	}
 }
